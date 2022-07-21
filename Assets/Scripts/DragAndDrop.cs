@@ -6,18 +6,13 @@ public class DragAndDrop : MonoBehaviour
 {
     bool moveAllowed;
     Collider2D col;
-
+    
     void Start()
     {
         col = GetComponent<Collider2D>();
     }
 
     void Update()
-    {
-        touchControl();
-    }
-
-    private void touchControl()
     {
         if (Input.touchCount > 0)
         {
