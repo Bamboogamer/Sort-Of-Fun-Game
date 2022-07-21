@@ -36,7 +36,6 @@ public class DragAndDrop : MonoBehaviour
 
             else if (touch.phase == TouchPhase.Moved)
             {
-
                 if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
