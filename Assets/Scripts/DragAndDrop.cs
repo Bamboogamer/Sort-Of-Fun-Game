@@ -6,14 +6,12 @@ public class DragAndDrop : MonoBehaviour
 {
     bool moveAllowed;
     Collider2D col;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         col = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0)
@@ -31,21 +29,18 @@ public class DragAndDrop : MonoBehaviour
                 }
             }
 
-            if (touch.phase == TouchPhase.Moved)
+            else if (touch.phase == TouchPhase.Moved)
             {
-
                 if (moveAllowed)
                 {
                     transform.position = new Vector2(touchPosition.x, touchPosition.y);
                 }
             }
 
-            if (touch.phase == TouchPhase.Ended)
+            else if (touch.phase == TouchPhase.Ended)
             {
                 moveAllowed = false;
             } 
         }
-
-        
     }
 }
