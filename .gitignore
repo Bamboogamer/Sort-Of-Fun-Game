@@ -5,7 +5,3 @@ llvm-lipo
 Temp/*
 Logs/*
 *.log
-Library/ProtocolInstance.json
-Library/SceneVisibilityState.asset
-Library/SceneVisibilityState.asset
-Library/ProtocolInstance.json
