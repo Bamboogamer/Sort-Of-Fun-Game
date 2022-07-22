@@ -13,17 +13,20 @@ public class ObjectBucket : MonoBehaviour
     {
         Debug.Log("Object ENTERED the Trigger");
         Debug.Log(other.tag + " TAG OF OBJECT");
+        Debug.Log(this.name + "NAME OF TRIGGER OBJECT");
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("Object is IN the Trigger");
         Debug.Log(other.tag + " TAG OF OBJECT");
+        Debug.Log(this.name + "NAME OF TRIGGER OBJECT");
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Object has EXITED the Trigger");
         Debug.Log(other.tag + " TAG OF OBJECT");
+        Debug.Log(this.name + "NAME OF TRIGGER OBJECT");
     }
 }
