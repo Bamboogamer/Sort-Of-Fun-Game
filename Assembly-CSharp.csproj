@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\DragAndDrop.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\ObjectBucket.cs" />
+     <None Include="Assets\Scripts\Video Links.txt" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
