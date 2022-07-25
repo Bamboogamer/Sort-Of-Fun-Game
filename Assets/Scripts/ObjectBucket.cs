@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -8,13 +9,23 @@ using UnityEngine;
 public class ObjectBucket : MonoBehaviour
 {
     List<Collider2D> objectsInBucket;
+    int score;
+
+    public int getScore()
+    {
+        return score;
+    }
+
+    public void addScore()
+    {
+        score++;
+    }
     
     void Start()
     {
+        score = 0;
         objectsInBucket = new List<Collider2D>();
     }
-
-    
     void OnTriggerEnter2D(Collider2D other)
     {
         objectsInBucket.Add(other);

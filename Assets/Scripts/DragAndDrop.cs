@@ -1,53 +1,56 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class DragAndDrop : MonoBehaviour
 {
-    bool moveAllowed;
-    Collider2D col;
+    bool fingerDown;
+    Collider2D objCollider;
     
-    // https://www.youtube.com/watch?v=FPJEbf2Fv1o&ab_channel=JasonFlack
+    // MULTI TOUCH: https://www.youtube.com/watch?v=FPJEbf2Fv1o&ab_channel=JasonFlack
     void Start()
     {
-        col = GetComponent<Collider2D>();
+        objCollider = GetComponent<Collider2D>();
     }
 
     void Update()
     {
-        if (Input.touchCount > 0)
-        {
+        if (Input.touchCount > 0) {
             Touch t = Input.GetTouch(0);
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
 
-            if (t.phase == TouchPhase.Began)
+            switch (t.phase)
             {
-                Collider2D touchedCollider = Physics2D.OverlapPoint(touchPosition);
+                case TouchPhase.Began:
+                    Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
                 
-                if (col == touchedCollider)
-                {
-                    Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
-                    moveAllowed = true;
-                }
-                else
-                {
-                    Debug.Log("NOT TOUCHING AN OBJECT: " + this.GameObject().name);
-                }
-            }
-            
-            else if (t.phase == TouchPhase.Ended)
-            {
-                moveAllowed = false;
-            }
-            
-            else if (t.phase == TouchPhase.Moved)
-            {
-                if (moveAllowed)
-                {
-                    transform.position = new Vector2(touchPosition.x, touchPosition.y);
-                }
-            }
+                    if (objCollider == touchCollider) {
+                        Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
+                        fingerDown = true;
+                    }
 
-             
+                    break;
+                
+                case TouchPhase.Ended:
+                    fingerDown = false;
+                    break;
+                
+                case TouchPhase.Moved:
+                    if (fingerDown) {
+                        transform.position = new Vector2(touchPosition.x, touchPosition.y);
+                    }
+                    break;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (fingerDown == false && this.gameObject.CompareTag("Red Circle"))
+        {
+            other.GetComponent<ObjectBucket>().addScore();
+            Debug.Log("XXXXXX " + other.GetComponent<ObjectBucket>().getScore());
+            Destroy(this.gameObject);
         }
     }
 }
