@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour
                     
                     if (objCollider == touchCollider) 
                     {
-                        Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
+                        Debug.Log("TOUCHING AN OBJECT: " + gameObject.name);
                         fingerDown = true;
                     }
                     break;
@@ -49,18 +49,17 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        String thisTag = gameObject.tag;
-        String otherTag = other.tag;
-        Debug.Log("THIS TAG: " + thisTag);
-        Debug.Log("OTHER TAG: " + otherTag);
+        // String thisTag = gameObject.tag;
+        // String otherTag = other.tag;
+        //
+        // Debug.Log("THIS TAG: " + thisTag);
+        // Debug.Log("OTHER TAG: " + otherTag);
         
         if (fingerDown == false && gameObject.CompareTag(other.tag))
         {
             other.GetComponent<ObjectBucket>().addScore();
-            Debug.Log("XXXXXX " + other.GetComponent<ObjectBucket>().getScore());
-            Debug.Log(other.GetComponent<ObjectBucket>().getScore());
-            other.GetComponent<ObjectBucket>().TMPtext.SetText(other.GetComponent<ObjectBucket>().getScore().ToString());
-            Destroy(this.gameObject);
+            other.GetComponent<ObjectBucket>().TMPtext.SetText("SCORE: " + other.GetComponent<ObjectBucket>().getScore());
+            Destroy(gameObject);
         }
     }
 }

@@ -5,3 +5,10 @@ llvm-lipo
 *.log
 Temp/*
 Logs/*
+*.cache
+*.log
+Library/StateCache/*
+Library/Artifacts/*
+Library/Bee/*
+Library/ScriptAssemblies/*
+*.rsp
