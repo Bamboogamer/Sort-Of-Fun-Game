@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -57,6 +58,8 @@ public class DragAndDrop : MonoBehaviour
         {
             other.GetComponent<ObjectBucket>().addScore();
             Debug.Log("XXXXXX " + other.GetComponent<ObjectBucket>().getScore());
+            Debug.Log(other.GetComponent<ObjectBucket>().getScore());
+            other.GetComponent<ObjectBucket>().TMPtext.SetText(other.GetComponent<ObjectBucket>().getScore().ToString());
             Destroy(this.gameObject);
         }
     }

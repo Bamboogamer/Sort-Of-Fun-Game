@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Blue Square
   - Red Circle
+  - Greed Circle
   layers:
   - Default
   - TransparentFX

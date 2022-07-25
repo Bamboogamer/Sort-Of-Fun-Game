@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -10,6 +11,8 @@ public class ObjectBucket : MonoBehaviour
 {
     List<Collider2D> objectsInBucket;
     int score;
+    [SerializeField] 
+    public TextMeshProUGUI TMPtext;
 
     public int getScore()
     {
@@ -25,6 +28,8 @@ public class ObjectBucket : MonoBehaviour
     {
         score = 0;
         objectsInBucket = new List<Collider2D>();
+        TMPtext = GetComponent<TextMeshProUGUI>();
+        // Debug.Log("AAAAAAAAAAAAAAAAAa   "  +GetComponentInChildren<TextMeshPro>().name);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
