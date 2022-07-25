@@ -13,3 +13,4 @@ Library/Bee/*
 Library/ScriptAssemblies/*
 *.rsp
 Library/ProtocolInstance.json
+Library/SceneVisibilityState.asset
