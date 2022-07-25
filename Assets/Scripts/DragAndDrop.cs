@@ -16,7 +16,8 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0) 
+        {
             Touch t = Input.GetTouch(0);
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
 
@@ -24,12 +25,12 @@ public class DragAndDrop : MonoBehaviour
             {
                 case TouchPhase.Began:
                     Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
-                
-                    if (objCollider == touchCollider) {
+                    
+                    if (objCollider == touchCollider) 
+                    {
                         Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
                         fingerDown = true;
                     }
-
                     break;
                 
                 case TouchPhase.Ended:
@@ -37,7 +38,8 @@ public class DragAndDrop : MonoBehaviour
                     break;
                 
                 case TouchPhase.Moved:
-                    if (fingerDown) {
+                    if (fingerDown) 
+                    {
                         transform.position = new Vector2(touchPosition.x, touchPosition.y);
                     }
                     break;
@@ -46,7 +48,12 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (fingerDown == false && this.gameObject.CompareTag("Red Circle"))
+        String thisTag = gameObject.tag;
+        String otherTag = other.tag;
+        Debug.Log("THIS TAG: " + thisTag);
+        Debug.Log("OTHER TAG: " + otherTag);
+        
+        if (fingerDown == false && gameObject.CompareTag(other.tag))
         {
             other.GetComponent<ObjectBucket>().addScore();
             Debug.Log("XXXXXX " + other.GetComponent<ObjectBucket>().getScore());
