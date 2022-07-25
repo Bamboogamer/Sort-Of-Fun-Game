@@ -12,3 +12,4 @@ Library/Artifacts/*
 Library/Bee/*
 Library/ScriptAssemblies/*
 *.rsp
+Library/ProtocolInstance.json
