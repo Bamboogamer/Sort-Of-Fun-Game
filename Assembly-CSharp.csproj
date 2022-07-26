@@ -47,6 +47,7 @@
      <Compile Include="Assets\CrystalFramework\Utility\Demos\SafeAreaDemo.cs" />
      <Compile Include="Assets\Scripts\ObjectBucket.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\Scripts\Known Bugs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />

@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class DragAndDrop : MonoBehaviour
 {
-    bool fingerDown;
+    public bool fingerDown;
     Collider2D objCollider;
     
     // MULTI TOUCH: https://www.youtube.com/watch?v=FPJEbf2Fv1o&ab_channel=JasonFlack
@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour
                     
                     if (objCollider == touchCollider) 
                     {
-                        Debug.Log("TOUCHING AN OBJECT: " + gameObject.name);
+                        Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
                         fingerDown = true;
                     }
                     break;
@@ -51,7 +51,6 @@ public class DragAndDrop : MonoBehaviour
     {
         // String thisTag = gameObject.tag;
         // String otherTag = other.tag;
-        //
         // Debug.Log("THIS TAG: " + thisTag);
         // Debug.Log("OTHER TAG: " + otherTag);
         

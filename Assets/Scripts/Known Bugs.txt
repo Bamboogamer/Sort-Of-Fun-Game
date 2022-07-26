@@ -1,0 +1,11 @@
+Bug #1
+========================================================================================================================
+If player moves object over the correct area and hovers (or stay stationary) over area for a short time and if the 
+player lets go of the object without moving it, the object will STAY and not count towards the score, even though the 
+object is clearly in the correct area/zone.
+
+Possible Fixes
+=======================
+- Could be fixed if the object is in constant motion (animations? momentum?)
+- Could also be ignored since it is relatively difficult for players to keep a touch location steady enough to cause 
+the bug
