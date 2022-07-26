@@ -27,20 +27,20 @@ public class ObjectBucket : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         objectsInBucket.Add(other);
-        Debug.Log(other.tag + " has ENTERED the " + name);
+        // Debug.Log(other.tag + " has ENTERED the " + name);
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        foreach(Collider2D col in objectsInBucket)
-        {
-            Debug.Log(col.tag + " is IN the " + name);
-        }
+        // foreach(Collider2D col in objectsInBucket)
+        // {
+        //     Debug.Log(col.tag + " is IN the " + name);
+        // }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log(other.tag + " has EXITED the " + name);
+        // Debug.Log(other.tag + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
 }

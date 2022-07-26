@@ -390,6 +390,7 @@
 "Assets/CrystalFramework/Utility/Demos/SafeAreaDemo.cs"
 "Assets/CrystalFramework/Utility/SafeArea.cs"
 "Assets/Scripts/DragAndDrop.cs"
+"Assets/Scripts/MultiTouchDrag.cs"
 "Assets/Scripts/ObjectBucket.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
