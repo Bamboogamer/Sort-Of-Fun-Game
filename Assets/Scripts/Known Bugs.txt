@@ -9,3 +9,12 @@ Possible Fixes
 - Could be fixed if the object is in constant motion (animations? momentum?)
 - Could also be ignored since it is relatively difficult for players to keep a touch location steady enough to cause 
 the bug
+
+Bug #2
+========================================================================================================================
+Multi-Touch is not working, only allows for a single object to be moved at a time. Needs to allow for as many touch
+inputs as the screen allows.
+
+Possible Fixes
+=======================
+- Need to DragAndDrop.cs or possibly make a new one?
