@@ -33,11 +33,12 @@ public class MultiTouchDrag : MonoBehaviour
                     case TouchPhase.Began:
                         // Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
                         touchStatus[objCollider] = true;
+                        Destroy(objCollider.GetComponent<MovementTest>());
                         break;
                         
                     case TouchPhase.Ended:
                         
-                        // Debug.Log("TOUCH HAS ENDED!");
+                        Debug.Log("TOUCH HAS ENDED!");
                         touchStatus[objCollider] = false;
                         break;
                         

@@ -14,6 +14,8 @@ UPDATE: 07/26/2022
 - Possibly happening due to the fact that the user input is too fast for the Update() per frame, if the "touch" is too
 far from the collider after the next frame, the object stays in place but Touch never technically ended
 
+FIXED
+
 Bug #2
 ========================================================================================================================
 Multi-Touch is not working, only allows for a single object to be moved at a time. Needs to allow for as many touch
@@ -22,3 +24,7 @@ inputs as the screen allows.
 Possible Fixes
 =======================
 - Need to DragAndDrop.cs or possibly make a new one?
+
+NOTES:
+Could possibly try to keep track on the individual objects "touched" status. if its still touched, then transform it to
+the touch location, even if they aren't "colliding" anymore

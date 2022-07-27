@@ -24,7 +24,7 @@ public class ObjectBucket : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.tag + " is IN the " + name);
+        // Debug.Log(other.tag + " is IN the " + name);
         var fingerDown = other.GetComponentInParent<MultiTouchDrag>().touchStatus[other];
         
         // If finger is still down OR the tag does not match
