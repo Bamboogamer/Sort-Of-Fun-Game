@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
@@ -24,6 +25,15 @@ public class ObjectBucket : MonoBehaviour
         score = 0;
         objectsInBucket = new List<Collider2D>();
     }
+
+    private void Update()
+    {
+        foreach (Collider2D col in objectsInBucket)
+        {
+            OnTriggerStay2D(col);
+        }  
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         objectsInBucket.Add(other);
