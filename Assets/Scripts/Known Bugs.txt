@@ -1,0 +1,24 @@
+Bug #1
+========================================================================================================================
+If player moves object over the correct area and hovers (or stay stationary) over area for a short time and if the 
+player lets go of the object without moving it, the object will STAY and not count towards the score, even though the 
+object is clearly in the correct area/zone.
+
+Possible Fixes
+=======================
+- Could be fixed if the object is in constant motion (animations? momentum?)
+- Could also be ignored since it is relatively difficult for players to keep a touch location steady enough to cause 
+the bug
+
+UPDATE: 07/26/2022
+- Possibly happening due to the fact that the user input is too fast for the Update() per frame, if the "touch" is too
+far from the collider after the next frame, the object stays in place but Touch never technically ended
+
+Bug #2
+========================================================================================================================
+Multi-Touch is not working, only allows for a single object to be moved at a time. Needs to allow for as many touch
+inputs as the screen allows.
+
+Possible Fixes
+=======================
+- Need to DragAndDrop.cs or possibly make a new one?

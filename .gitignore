@@ -5,3 +5,11 @@ llvm-lipo
 *.log
 Temp/*
 Logs/*
+*.cache
+*.log
+Library/StateCache/*
+Library/Artifacts/*
+Library/Bee/*
+*.rsp
+Library/ProtocolInstance.json
+Library/SceneVisibilityState.asset
