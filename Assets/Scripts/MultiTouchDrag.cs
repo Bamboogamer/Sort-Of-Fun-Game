@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MultiTouchDrag : MonoBehaviour
@@ -32,13 +31,13 @@ public class MultiTouchDrag : MonoBehaviour
                 switch (t.phase)
                 {
                     case TouchPhase.Began:
-                        Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
+                        // Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
                         touchStatus[objCollider] = true;
                         break;
                         
                     case TouchPhase.Ended:
                         
-                        Debug.Log("TOUCH HAS ENDED!");
+                        // Debug.Log("TOUCH HAS ENDED!");
                         touchStatus[objCollider] = false;
                         break;
                         
@@ -50,11 +49,11 @@ public class MultiTouchDrag : MonoBehaviour
                         break;
                         
                     case TouchPhase.Canceled:
-                        Debug.Log("TOUCH HAS CANCELLED!");
+                        // Debug.Log("TOUCH HAS CANCELLED!");
                         break;
                         
                     case TouchPhase.Stationary:
-                        Debug.Log("TOUCH IS STATIONARY!");
+                        // Debug.Log("TOUCH IS STATIONARY!");
                         break;
                         
                     default:
