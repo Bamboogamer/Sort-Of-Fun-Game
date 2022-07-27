@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,68 +21,46 @@ public class MultiTouchDrag : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("NUMBER OF TOUCHES: " + Input.touches.Length);
         foreach (Touch t in Input.touches)
         {
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
             Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
 
-            foreach (Collider2D objCollider in objColliders)
+            // foreach (Collider2D objCollider in objColliders)  <-- Old code before IDE suggested this refactor
+            foreach (var objCollider in objColliders.Where(objCollider => objCollider == touchCollider))
             {
-                if (objCollider == touchCollider)
+                switch (t.phase)
                 {
-                    // Debug.Log("TEST" + objCollider.GetType());
-                    switch (t.phase)
-                    {
-                        case TouchPhase.Began:
-                            Debug.Log("TOUCHING AN OBJECT: " + this.GameObject().name);
-                            touchStatus[objCollider] = true;
-                            break;
+                    case TouchPhase.Began:
+                        Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
+                        touchStatus[objCollider] = true;
+                        break;
                         
-                        case TouchPhase.Ended:
+                    case TouchPhase.Ended:
                         
-                            Debug.Log("TOUCH HAS ENDED! -- DANNY");
-                            touchStatus[objCollider] = false;
-                            break;
+                        Debug.Log("TOUCH HAS ENDED!");
+                        touchStatus[objCollider] = false;
+                        break;
                         
-                        case TouchPhase.Moved:
-                            if (touchStatus[objCollider])
-                            {
-                                objCollider.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
-                            }
-                            break;
+                    case TouchPhase.Moved:
+                        if (touchStatus[objCollider])
+                        {
+                            objCollider.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
+                        }
+                        break;
                         
-                        case TouchPhase.Canceled:
-                            Debug.Log("TOUCH HAS CANCELLED! -- DANNY");
-                            break;
+                    case TouchPhase.Canceled:
+                        Debug.Log("TOUCH HAS CANCELLED!");
+                        break;
                         
-                        case TouchPhase.Stationary:
-                            Debug.Log("TOUCH HAS STATIONARY! -- DANNY");
-                            break;
+                    case TouchPhase.Stationary:
+                        Debug.Log("TOUCH IS STATIONARY!");
+                        break;
                         
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
         }
     }
-    
-    // void OnTriggerStay2D(Collider2D other)
-    // {
-    //     foreach (Collider2D objCollider in objColliders)
-    //     {
-    //         var thisTag = objCollider.tag;
-    //         var otherTag = other.tag;
-    //         Debug.Log("THIS TAG: " + thisTag);
-    //         Debug.Log("OTHER TAG: " + otherTag);
-    //         
-    //         if (touchStatus[objCollider] == false && objCollider.CompareTag(other.tag))
-    //         {
-    //             other.GetComponent<ObjectBucket>().addScore();
-    //             other.GetComponent<ObjectBucket>().TMPtext.SetText("SCORE: " + other.GetComponent<ObjectBucket>().getScore());
-    //             Destroy(gameObject);
-    //         }
-    //     }
-    // }
 }
