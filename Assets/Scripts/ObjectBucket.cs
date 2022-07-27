@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using TMPro;
 using UnityEngine;
 
@@ -8,17 +6,7 @@ public class ObjectBucket : MonoBehaviour
 {
     List<Collider2D> objectsInBucket;
     int score;
-    public TextMeshProUGUI TMPtext;
-
-    public int getScore()
-    {
-        return score;
-    }
-
-    public void addScore()
-    {
-        score++;
-    }
+    TextMeshProUGUI TMPtext;
     
     void Start()
     {
@@ -33,29 +21,27 @@ public class ObjectBucket : MonoBehaviour
             OnTriggerStay2D(col);
         }  
     }
+    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log(other.tag + " is IN the " + name);
 
+        // If finger is still down OR the tag does not match
+        // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
+        if (other.GetComponentInParent<MultiTouchDrag>().touchStatus[other] || !CompareTag(other.tag)) return;
+        
+        score++;
+        TMPtext.SetText("SCORE: " + score);
+        Destroy(other.gameObject);
+        objectsInBucket.Remove(other);
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         objectsInBucket.Add(other);
         Debug.Log(other.tag + " has ENTERED the " + name);
     }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        for (int i = objectsInBucket.Count-1; i >= 0; i--)
-        {
-            var col = objectsInBucket[i];
-            Debug.Log(col.tag + " is IN the " + name);
-            if (!col.GetComponentInParent<MultiTouchDrag>().touchStatus[col] && CompareTag(col.tag))
-            {
-                addScore();
-                TMPtext.SetText("SCORE: " + getScore());
-                Destroy(col.gameObject);
-                objectsInBucket.Remove(col);
-            }
-        }
-    }
-
+ 
     void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log(other.tag + " has EXITED the " + name);
