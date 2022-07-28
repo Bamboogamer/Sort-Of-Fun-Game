@@ -26,6 +26,8 @@ public class ObjectBucket : MonoBehaviour
     {
         // Debug.Log(other.tag + " is IN the " + name);
         var fingerDown = other.GetComponentInParent<MultiTouchDrag>().touchStatus[other];
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0;
         
         // If finger is still down OR the tag does not match
         // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
@@ -39,6 +41,8 @@ public class ObjectBucket : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0;
         // Debug.Log(other.tag + " has ENTERED the " + name);
         objectsInBucket.Add(other);
         
@@ -46,6 +50,8 @@ public class ObjectBucket : MonoBehaviour
  
     void OnTriggerExit2D(Collider2D other)
     {
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0.25f;
         // Debug.Log(other.tag + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
