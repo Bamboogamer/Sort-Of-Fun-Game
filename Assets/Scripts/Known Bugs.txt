@@ -1,3 +1,10 @@
+Bug #TEMPLATE
+========================================================================================================================
+
+Possible Fixes
+=======================
+
+
 Bug #1 - FIXED
 ========================================================================================================================
 If player moves object over the correct area and hovers (or stay stationary) over area for a short time and if the 
@@ -35,9 +42,3 @@ isn't another movable object, the next touch is trying to access the deleted Col
 Possible Fixes
 =======================
 - Fix MultiTouchDrag.cs
-
-
-Bug #TEMPLATE
-========================================================================================================================
-Possible Fixes
-=======================
