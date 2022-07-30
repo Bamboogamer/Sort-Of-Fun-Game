@@ -27,14 +27,14 @@ NOTES:
 Could possibly try to keep track on the individual objects "touched" status. if its still touched, then transform it to
 the touch location, even if they aren't "colliding" anymore
 
-Bug #3
+Bug #3 - FIXED
 ========================================================================================================================
-Moving the object into the appropriate bucket, but once the object deletes itself.. if you try to touch an area that
+Moving the object into the appropriate bucket, but once the object deletes itself. If you try to touch an area that
 isn't another movable object, the next touch is trying to access the deleted Collider2D, thus crashing the game.
 
 Possible Fixes
 =======================
-N/A
+- Fix MultiTouchDrag.cs
 
 
 Bug #TEMPLATE

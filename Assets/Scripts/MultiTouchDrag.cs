@@ -29,60 +29,63 @@ public class MultiTouchDrag : MonoBehaviour
             foreach (Collider2D objCollider in objColliders.Where(objCollider => objCollider == touchCollider))
             {
                 BoxCollider2D boxCollider = objCollider as BoxCollider2D;
-                switch (t.phase)
+                if (!objCollider.Equals(null))
                 {
-                    case TouchPhase.Began:
-                        Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
-                        touchStatus[objCollider] = true;
-                        boxCollider.edgeRadius = 2;
-                        break;
-
-                    case TouchPhase.Ended:
-                        Debug.Log("TOUCH HAS ENDED!");
-                        boxCollider.edgeRadius = 0;
-                        touchStatus[objCollider] = false;
-                        break;
-
-                    case TouchPhase.Moved:
-                        if (touchStatus[objCollider])
-                        {
-                            objCollider.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
-                        }
-
-                        break;
-
-                    case TouchPhase.Canceled:
-                        // Debug.Log("TOUCH HAS CANCELLED!");
-                        break;
-
-                    case TouchPhase.Stationary:
-                        // Debug.Log("TOUCH IS STATIONARY!");
-                        break;
-
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    switch (t.phase)
+                    {
+                        case TouchPhase.Began:
+                            Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
+                            touchStatus[objCollider] = true;
+                            boxCollider.edgeRadius = 2;
+                            break;
+    
+                        case TouchPhase.Ended:
+                            Debug.Log("TOUCH HAS ENDED!");
+                            boxCollider.edgeRadius = 0;
+                            touchStatus[objCollider] = false;
+                            break;
+    
+                        case TouchPhase.Moved:
+                            if (touchStatus[objCollider])
+                            {
+                                objCollider.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
+                            }
+    
+                            break;
+    
+                        case TouchPhase.Canceled:
+                            // Debug.Log("TOUCH HAS CANCELLED!");
+                            break;
+    
+                        case TouchPhase.Stationary:
+                            // Debug.Log("TOUCH IS STATIONARY!");
+                            break;
+    
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
         }
     }
     
-    // Private Functions //
-    private List<Collider2D> findColliders()
-    {
-         List<Collider2D> result = new List<Collider2D>();
-         foreach (Touch t in Input.touches)
-         {
-             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
-             Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
- 
-             foreach (Collider2D objCollider in objColliders.Where(objCollider => objCollider == touchCollider))
-             {
-                 BoxCollider2D boxCollider = objCollider as BoxCollider2D;
-                 result.Add(boxCollider);
-                 break;
-             }
-         }
- 
-         return result;
-    }
+    // // Private Functions //
+    // private List<Collider2D> findColliders()
+    // {
+    //      List<Collider2D> result = new List<Collider2D>();
+    //      foreach (Touch t in Input.touches)
+    //      {
+    //          Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
+    //          Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
+    //
+    //          foreach (Collider2D objCollider in objColliders.Where(objCollider => objCollider == touchCollider))
+    //          {
+    //              BoxCollider2D boxCollider = objCollider as BoxCollider2D;
+    //              result.Add(boxCollider);
+    //              break;
+    //          }
+    //      }
+    //
+    //      return result;
+    // }
 }

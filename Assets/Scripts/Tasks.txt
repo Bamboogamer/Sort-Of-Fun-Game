@@ -1,1 +1,2 @@
 1. Create Samsung Galaxy S21 Ultra Device Simulator
+	-https://docs.unity3d.com/Packages/com.unity.device-simulator@3.0/manual/DefiningCustomDevices.html

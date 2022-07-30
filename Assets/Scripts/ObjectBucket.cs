@@ -35,8 +35,8 @@ public class ObjectBucket : MonoBehaviour
         
         score++;
         TMPtext.SetText("SCORE: " + score);
-        Destroy(other.gameObject);
         objectsInBucket.Remove(other);
+        Destroy(other.gameObject);
     }
     
     void OnTriggerEnter2D(Collider2D other)

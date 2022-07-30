@@ -1832,7 +1832,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.45}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.25
 --- !u!212 &1464810533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2162,7 +2162,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.45}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.25
 --- !u!212 &1585811188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2315,7 +2315,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.45}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.25
 --- !u!212 &1620238242
 SpriteRenderer:
   m_ObjectHideFlags: 0
