@@ -18,9 +18,10 @@ public class MultiTouchDrag : MonoBehaviour
         }
     }
     
+    // TODO: Could possibly add a second Collider to the object to distinguish TOUCH vs Point Trigger
     void Update()
     {
-        // TODO: Can be optimized using multi-threading
+        // TODO: Can be optimized using multi-threading??
         foreach (Touch t in Input.touches)
         {
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
@@ -70,6 +71,7 @@ public class MultiTouchDrag : MonoBehaviour
     }
     
     // // Private Functions //
+    // // TODO: This was used for testing optimization, but ignore for now
     // private List<Collider2D> findColliders()
     // {
     //      List<Collider2D> result = new List<Collider2D>();

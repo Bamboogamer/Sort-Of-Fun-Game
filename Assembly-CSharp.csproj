@@ -41,12 +41,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MovementTest.cs" />
      <Compile Include="Assets\CrystalFramework\Utility\SafeArea.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\CrystalFramework\Utility\Demos\SafeAreaDemo.cs" />
      <Compile Include="Assets\Scripts\ObjectBucket.cs" />
      <Compile Include="Assets\Scripts\MultiTouchDrag.cs" />
+     <Compile Include="Assets\Scripts\ConveyorScript.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Scripts\Known Bugs.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

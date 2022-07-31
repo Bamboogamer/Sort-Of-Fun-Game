@@ -389,7 +389,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/CrystalFramework/Utility/Demos/SafeAreaDemo.cs"
 "Assets/CrystalFramework/Utility/SafeArea.cs"
-"Assets/Scripts/MovementTest.cs"
+"Assets/Scripts/ConveyorScript.cs"
 "Assets/Scripts/MultiTouchDrag.cs"
 "Assets/Scripts/ObjectBucket.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
