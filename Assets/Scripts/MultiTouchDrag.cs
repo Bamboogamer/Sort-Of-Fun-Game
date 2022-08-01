@@ -38,11 +38,13 @@ public class MultiTouchDrag : MonoBehaviour
                             Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
                             touchStatus[objCollider] = true;
                             boxCollider.edgeRadius = 2;
+                            boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();
                             break;
     
                         case TouchPhase.Ended:
                             Debug.Log("TOUCH HAS ENDED!");
                             boxCollider.edgeRadius = 0;
+                            boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();                            
                             touchStatus[objCollider] = false;
                             break;
     

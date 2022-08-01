@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ConveyorScript : MonoBehaviour
@@ -22,8 +23,12 @@ public class ConveyorScript : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.gameObject.transform.Translate(Vector3.right *(Time.deltaTime * speed));
+        GameObject movingObject = other.gameObject;
+
+        if (!movingObject.GetComponent<MovableObject>().getTouchStatus())
+        {
+           movingObject.transform.Translate(Vector3.right *(Time.deltaTime * speed));
+        }
     }
     
     void OnTriggerEnter2D(Collider2D other)

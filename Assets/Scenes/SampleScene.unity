@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 62534638}
   - component: {fileID: 62534636}
   - component: {fileID: 62534635}
+  - component: {fileID: 62534639}
   m_Layer: 0
   m_Name: Blue Square (2)
   m_TagString: Blue Square
@@ -261,6 +262,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &62534639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62534633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &198667442
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +286,7 @@ GameObject:
   - component: {fileID: 198667447}
   - component: {fileID: 198667445}
   - component: {fileID: 198667444}
+  - component: {fileID: 198667448}
   m_Layer: 0
   m_Name: Red Circle (2)
   m_TagString: Red Circle
@@ -399,6 +413,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &198667448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198667442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276949850
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +956,7 @@ GameObject:
   - component: {fileID: 758824032}
   - component: {fileID: 758824030}
   - component: {fileID: 758824029}
+  - component: {fileID: 758824033}
   m_Layer: 0
   m_Name: Purple Circle (1)
   m_TagString: Purple Circle
@@ -1056,6 +1083,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &758824033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758824027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &808730287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1107,7 @@ GameObject:
   - component: {fileID: 808730292}
   - component: {fileID: 808730290}
   - component: {fileID: 808730289}
+  - component: {fileID: 808730293}
   m_Layer: 0
   m_Name: Blue Square (1)
   m_TagString: Blue Square
@@ -1194,6 +1234,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &808730293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808730287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016742228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1406,7 @@ GameObject:
   - component: {fileID: 1285253164}
   - component: {fileID: 1285253162}
   - component: {fileID: 1285253161}
+  - component: {fileID: 1285253165}
   m_Layer: 0
   m_Name: Purple Circle
   m_TagString: Purple Circle
@@ -1480,6 +1533,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1285253165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285253159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301598818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,6 +1557,7 @@ GameObject:
   - component: {fileID: 1301598819}
   - component: {fileID: 1301598824}
   - component: {fileID: 1301598825}
+  - component: {fileID: 1301598827}
   m_Layer: 0
   m_Name: Red Circle
   m_TagString: Red Circle
@@ -1618,6 +1684,18 @@ RectTransform:
   m_AnchoredPosition: {x: 2.6400008, y: -1.41}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1301598827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301598818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1383326429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,6 +2458,7 @@ GameObject:
   - component: {fileID: 1644962468}
   - component: {fileID: 1644962466}
   - component: {fileID: 1644962465}
+  - component: {fileID: 1644962469}
   m_Layer: 0
   m_Name: Red Circle (1)
   m_TagString: Red Circle
@@ -2506,6 +2585,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1644962469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644962463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921347716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,6 +2609,7 @@ GameObject:
   - component: {fileID: 1921347717}
   - component: {fileID: 1921347721}
   - component: {fileID: 1921347722}
+  - component: {fileID: 1921347724}
   m_Layer: 0
   m_Name: Blue Square
   m_TagString: Blue Square
@@ -2644,6 +2736,18 @@ RectTransform:
   m_AnchoredPosition: {x: -7.0399995, y: -1.41}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1921347724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921347716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1941048796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,6 +2861,7 @@ GameObject:
   - component: {fileID: 2100245823}
   - component: {fileID: 2100245821}
   - component: {fileID: 2100245820}
+  - component: {fileID: 2100245824}
   m_Layer: 0
   m_Name: Red Circle (3)
   m_TagString: Red Circle
@@ -2883,3 +2988,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2100245824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100245818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e927355977a00d4382f5bae89e695f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
