@@ -42,3 +42,21 @@ isn't another movable object, the next touch is trying to access the deleted Col
 Possible Fixes
 =======================
 - Fix MultiTouchDrag.cs
+
+Bug #4
+========================================================================================================================
+When moving objects while they're on the Conveyor, object is getting is getting confused and somehow is not turning off
+the "touch status" and the object floats on the conveyor belt and does not move even when all fingers are off the screen
+
+UPDATE 07/31/22
+When using only one finger, if you "swipe" over another object while moving another, the touch gets confused and the
+original object stops moving and the movement is no longer being registered
+
+Possible Fixes
+=======================
+- Something is wrong with the MultiTouch script that isn't detecting when a touch is OFF the screen
+    - May force a check if all fingers are off the screen, toggle all "touch status" to FALSE
+        - Likely will not fix if one finger is still on screen but the object NOT being touched is stationary
+- Likely to do with MultiTouch logic using the "for loops", touches to specific objects are not being detected uniquely
+thus, making the logic confused.
+    - Use a HashMap/Dictionary? 

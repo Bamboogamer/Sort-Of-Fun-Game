@@ -16,8 +16,20 @@ public class MovableObject : MonoBehaviour
         return touchStatus;
     }
 
-    public void toggleTouchStatus()
+    public void touchOn()
     {
-        touchStatus = !touchStatus;
+        Debug.Log("Player is touching: " + name);
+        touchStatus = true;
     }
+
+    public void touchOff()
+    {
+        Debug.Log("Player has let go of: " + name);
+        touchStatus = false;
+    }
+
+    // public void toggleTouchStatus()
+    // {
+    //     touchStatus = !touchStatus;
+    // }
 }

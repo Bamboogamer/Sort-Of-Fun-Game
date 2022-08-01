@@ -6,3 +6,7 @@
 	- May need to add border colliders on conveyor object or screenspace
 		- I want the Movable objects when they're not on the conveyor to be deleted.
 			- Not sure if I want it deleted immediately, or over time (5 second rule or something?)
+
+3. Set up a Trello board
+    - Separate bugs, tasks, and stories
+    - Delete the text files

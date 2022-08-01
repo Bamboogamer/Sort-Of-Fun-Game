@@ -22,8 +22,11 @@ public class MultiTouchDrag : MonoBehaviour
     void Update()
     {
         // TODO: Can be optimized using multi-threading??
+        int touchCount = 0;
         foreach (Touch t in Input.touches)
         {
+            touchCount++;
+            Debug.Log("CURRENT TOUCH: " + touchCount);
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
             Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
 
@@ -38,13 +41,13 @@ public class MultiTouchDrag : MonoBehaviour
                             Debug.Log("TOUCHING AN OBJECT: " + objCollider.name);
                             touchStatus[objCollider] = true;
                             boxCollider.edgeRadius = 2;
-                            boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();
+                            boxCollider.gameObject.GetComponent<MovableObject>().touchOn();
                             break;
     
                         case TouchPhase.Ended:
-                            Debug.Log("TOUCH HAS ENDED!");
+                            Debug.Log("TOUCH HAS ENDED FOR: " + objCollider.name);
                             boxCollider.edgeRadius = 0;
-                            boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();                            
+                            boxCollider.gameObject.GetComponent<MovableObject>().touchOff();                            
                             touchStatus[objCollider] = false;
                             break;
     
@@ -53,15 +56,16 @@ public class MultiTouchDrag : MonoBehaviour
                             {
                                 objCollider.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
                             }
-    
                             break;
     
                         case TouchPhase.Canceled:
-                            // Debug.Log("TOUCH HAS CANCELLED!");
+                            Debug.Log("TOUCH HAS CANCELLED!" + objCollider.name);
+                            // boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();  
                             break;
     
                         case TouchPhase.Stationary:
                             // Debug.Log("TOUCH IS STATIONARY!");
+                            // boxCollider.gameObject.GetComponent<MovableObject>().toggleTouchStatus();
                             break;
     
                         default:
