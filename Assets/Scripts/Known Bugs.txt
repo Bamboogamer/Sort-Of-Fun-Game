@@ -1,4 +1,11 @@
-Bug #1
+Bug #TEMPLATE
+========================================================================================================================
+
+Possible Fixes
+=======================
+
+
+Bug #1 - FIXED
 ========================================================================================================================
 If player moves object over the correct area and hovers (or stay stationary) over area for a short time and if the 
 player lets go of the object without moving it, the object will STAY and not count towards the score, even though the 
@@ -14,7 +21,7 @@ UPDATE: 07/26/2022
 - Possibly happening due to the fact that the user input is too fast for the Update() per frame, if the "touch" is too
 far from the collider after the next frame, the object stays in place but Touch never technically ended
 
-Bug #2
+Bug #2 - FIXED
 ========================================================================================================================
 Multi-Touch is not working, only allows for a single object to be moved at a time. Needs to allow for as many touch
 inputs as the screen allows.
@@ -22,3 +29,36 @@ inputs as the screen allows.
 Possible Fixes
 =======================
 - Need to DragAndDrop.cs or possibly make a new one?
+
+NOTES:
+Could possibly try to keep track on the individual objects "touched" status. if its still touched, then transform it to
+the touch location, even if they aren't "colliding" anymore
+
+Bug #3 - FIXED
+========================================================================================================================
+Moving the object into the appropriate bucket, but once the object deletes itself. If you try to touch an area that
+isn't another movable object, the next touch is trying to access the deleted Collider2D, thus crashing the game.
+
+Possible Fixes
+=======================
+- Fix MultiTouchDrag.cs
+
+Bug #4
+========================================================================================================================
+When moving objects while they're on the Conveyor, object is getting is getting confused and somehow is not turning off
+the "touch status" and the object floats on the conveyor belt and does not move even when all fingers are off the screen
+
+UPDATE 07/31/22
+When using only one finger, if you "swipe" over another object while moving another, the touch gets confused and the
+original object stops moving and the movement is no longer being registered
+
+Possible Fixes
+=======================
+- Something is wrong with the MultiTouch script that isn't detecting when a touch is OFF the screen
+    - May force a check if all fingers are off the screen, toggle all "touch status" to FALSE
+        - Likely will not fix if one finger is still on screen but the object NOT being touched is stationary
+- Likely to do with MultiTouch logic using the "for loops", touches to specific objects are not being detected uniquely
+thus, making the logic confused.
+    - Use a HashMap/Dictionary?
+- Touch Collider is colliding with more than 1 Object Collider and logic is getting confused on what was the OG object
+being touched

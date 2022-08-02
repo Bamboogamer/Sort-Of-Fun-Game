@@ -1,54 +1,68 @@
 using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class ObjectBucket : MonoBehaviour
 {
-    List<Collider2D> objectsInBucket;
-    int score;
     public TextMeshProUGUI TMPtext;
-
-    public int getScore()
-    {
-        return score;
-    }
-
-    public void addScore()
-    {
-        score++;
-    }
+    List<Collider2D> objectsInBucket;
+    
+    [SerializeField] int score;
+    [SerializeField] public List<string> categories;
     
     void Start()
     {
         score = 0;
         objectsInBucket = new List<Collider2D>();
     }
+
+    private void Update()
+    {
+        for (var i = objectsInBucket.Count-1; i >= 0; i--)
+        {
+            OnTriggerStay2D(objectsInBucket[i]);
+        }  
+    }
+    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        // Finds intersections between both lists, true if any element match
+        bool intersectLists = categories.Intersect(other.GetComponent<MovableObject>().categories).Any();
+        // Debug.Log("TESTING: " + intersectLists);
+        // Debug.Log(string.Join(",", categories.ToArray()));
+        // Debug.Log(string.Join(",", string.Join(",", other.GetComponent<MovableObject>().categories.ToArray())));
+        
+        // Debug.Log(other.tag + " is IN the " + name);
+        var fingerDown = other.gameObject.GetComponent<MovableObject>().getTouchStatus();
+        
+        // If finger is still down OR the tag does not match
+        // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
+        if (fingerDown || !intersectLists) return;
+        
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0;
+        
+        score++;
+        TMPtext.SetText("SCORE: " + score);
+        objectsInBucket.Remove(other);
+        Destroy(other.gameObject);
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0;
+        // Debug.Log(other.tag + " has ENTERED the " + name);
         objectsInBucket.Add(other);
-        Debug.Log(other.tag + " has ENTERED the " + name);
+        
     }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        for (int i = objectsInBucket.Count-1; i >= 0; i--)
-        {
-            var col = objectsInBucket[i];
-            Debug.Log(col.tag + " is IN the " + name);
-            if (!col.GetComponentInParent<MultiTouchDrag>().touchStatus[col] && CompareTag(col.tag))
-            {
-                addScore();
-                TMPtext.SetText("SCORE: " + getScore());
-                Destroy(col.gameObject);
-                objectsInBucket.Remove(col);
-            }
-        }
-    }
-
+ 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log(other.tag + " has EXITED the " + name);
+        BoxCollider2D boxCol = other as BoxCollider2D;
+        boxCol.edgeRadius = 0.35f; // TODO: Could be changed to be based more on distance than instantly changing this
+        // Debug.Log(other.tag + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
 }
