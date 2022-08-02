@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-Sort-Of-Fun-Game/[Ll]ibrary/
+Sort-Of-Fun-Game/[Ll]ibrary/*
 Sort-Of-Fun-Game/[Tt]emp/
 Sort-Of-Fun-Game/[Oo]bj/
 Sort-Of-Fun-Game/[Bb]uild/
@@ -71,7 +71,7 @@ Sort-Of-Fun-Game/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 Sort-Of-Fun-Game/[Aa]ssets/[Ss]treamingAssets/aa.meta
 Sort-Of-Fun-Game/[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Danny's gitignore options
+# Danny Custom gitignore options
 Sort-Of-Fun-Game/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/hostlin/*
 Sort-Of-Fun-Game/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/hostmac/*
 Sort-Of-Fun-Game/Library/SceneVisibilityState.asset
