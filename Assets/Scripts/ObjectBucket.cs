@@ -1,12 +1,15 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class ObjectBucket : MonoBehaviour
 {
-    [SerializeField] int score; // Will increase based on difficulty
     public TextMeshProUGUI TMPtext;
     List<Collider2D> objectsInBucket;
+    
+    [SerializeField] int score;
+    [SerializeField] public List<string> categories;
     
     void Start()
     {
@@ -24,12 +27,18 @@ public class ObjectBucket : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
+        // Finds intersections between both lists, true if any element match
+        bool intersectLists = categories.Intersect(other.GetComponent<MovableObject>().categories).Any();
+        // Debug.Log("TESTING: " + intersectLists);
+        // Debug.Log(string.Join(",", categories.ToArray()));
+        // Debug.Log(string.Join(",", string.Join(",", other.GetComponent<MovableObject>().categories.ToArray())));
+        
         // Debug.Log(other.tag + " is IN the " + name);
-        var fingerDown = other.GetComponentInParent<MultiTouchDrag>().touchStatus[other];
+        var fingerDown = other.gameObject.GetComponent<MovableObject>().getTouchStatus();
         
         // If finger is still down OR the tag does not match
         // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
-        if (fingerDown || !CompareTag(other.tag)) return;
+        if (fingerDown || !intersectLists) return;
         
         BoxCollider2D boxCol = other as BoxCollider2D;
         boxCol.edgeRadius = 0;

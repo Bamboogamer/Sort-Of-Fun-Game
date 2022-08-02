@@ -10,3 +10,5 @@
 3. Set up a Trello board
     - Separate bugs, tasks, and stories
     - Delete the text files
+
+4. Set a despawn timer for MovableObject, if not in safe zone (conveyor), object will despawn after a certain time

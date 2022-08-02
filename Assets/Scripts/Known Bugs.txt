@@ -59,4 +59,6 @@ Possible Fixes
         - Likely will not fix if one finger is still on screen but the object NOT being touched is stationary
 - Likely to do with MultiTouch logic using the "for loops", touches to specific objects are not being detected uniquely
 thus, making the logic confused.
-    - Use a HashMap/Dictionary? 
+    - Use a HashMap/Dictionary?
+- Touch Collider is colliding with more than 1 Object Collider and logic is getting confused on what was the OG object
+being touched
