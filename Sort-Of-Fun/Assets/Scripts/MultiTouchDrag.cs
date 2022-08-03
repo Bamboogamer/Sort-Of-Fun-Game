@@ -9,12 +9,13 @@ public class MultiTouchDrag : MonoBehaviour
     
     void Start()
     {
-        objColliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
+        // objColliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
     }
     
     // TODO: Could possibly add a second Collider to the object to distinguish TOUCH vs Point Trigger
     void Update()
     {
+        objColliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
         // TODO: Can be optimized using multi-threading??
         foreach (Touch t in Input.touches)
         {

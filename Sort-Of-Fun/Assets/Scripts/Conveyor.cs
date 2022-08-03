@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorScript : MonoBehaviour
+public class Conveyor : MonoBehaviour
 {
     [SerializeField] public float speed = 0.25f; // Increase/Decrease based on Difficulty
     List<Collider2D> objectsInBucket;
