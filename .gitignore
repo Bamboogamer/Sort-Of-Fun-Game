@@ -72,7 +72,4 @@ Sort-Of-Fun/[Aa]ssets/[Ss]treamingAssets/aa.meta
 Sort-Of-Fun/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Danny Custom gitignore options
-# *.backup
-# *.log
-# *.cache
-# *.rsp
+*.dwlt
