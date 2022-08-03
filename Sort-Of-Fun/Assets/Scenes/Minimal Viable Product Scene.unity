@@ -1909,7 +1909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMPtext: {fileID: 0}
   score: 0
-  categories: []
+  categories:
+  - Purple
 --- !u!61 &1464810532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2240,7 +2241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMPtext: {fileID: 0}
   score: 0
-  categories: []
+  categories:
+  - Red
 --- !u!61 &1585811187
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2394,7 +2396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TMPtext: {fileID: 0}
   score: 0
-  categories: []
+  categories:
+  - Blue
 --- !u!61 &1620238241
 BoxCollider2D:
   m_ObjectHideFlags: 0
