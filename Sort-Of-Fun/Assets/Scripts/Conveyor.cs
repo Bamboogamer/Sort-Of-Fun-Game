@@ -31,7 +31,6 @@ public class Conveyor : MonoBehaviour
     {
         Debug.Log(other.tag + " has ENTERED the " + name);
         objectsInBucket.Add(other);
-        
     }
  
     void OnTriggerExit2D(Collider2D other)
