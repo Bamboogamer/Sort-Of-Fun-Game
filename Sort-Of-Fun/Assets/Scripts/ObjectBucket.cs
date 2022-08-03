@@ -15,6 +15,7 @@ public class ObjectBucket : MonoBehaviour
     {
         score = 0;
         objectsInBucket = new List<Collider2D>();
+        TMPtext = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -53,7 +54,7 @@ public class ObjectBucket : MonoBehaviour
     {
         BoxCollider2D boxCol = other as BoxCollider2D;
         boxCol.edgeRadius = 0;
-        // Debug.Log(other.tag + " has ENTERED the " + name);
+        Debug.Log(other.name + " has ENTERED the " + name);
         objectsInBucket.Add(other);
         
     }
@@ -62,7 +63,7 @@ public class ObjectBucket : MonoBehaviour
     {
         BoxCollider2D boxCol = other as BoxCollider2D;
         boxCol.edgeRadius = 0.35f; // TODO: Could be changed to be based more on distance than instantly changing this
-        // Debug.Log(other.tag + " has EXITED the " + name);
+        Debug.Log(other.name + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
 }
