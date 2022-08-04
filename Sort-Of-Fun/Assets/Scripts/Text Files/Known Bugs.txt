@@ -48,19 +48,22 @@ Bug #4
 When moving objects while they're on the Conveyor, object is getting is getting confused and somehow is not turning off
 the "touch status" and the object floats on the conveyor belt and does not move even when all fingers are off the screen
 
-UPDATE 07/31/22
+UPDATE 07/31/22 -- 
 When using only one finger, if you "swipe" over another object while moving another, the touch gets confused and the
 original object stops moving and the movement is no longer being registered
+
+FIXED 08/03/2022
+Fixed an issue where when sliding touch over an object will pick it up. Now objects MUST be touched first to be moved.
 
 Possible Fixes
 =======================
 - Something is wrong with the MultiTouch script that isn't detecting when a touch is OFF the screen
     - May force a check if all fingers are off the screen, toggle all "touch status" to FALSE
         - Likely will not fix if one finger is still on screen but the object NOT being touched is stationary
-- Likely to do with MultiTouch logic using the "for loops", touches to specific objects are not being detected uniquely
+DONE - Likely to do with MultiTouch logic using the "for loops", touches to specific objects are not being detected uniquely
 thus, making the logic confused.
     - Use a HashMap/Dictionary?
-- Touch Collider is colliding with more than 1 Object Collider and logic is getting confused on what was the OG object
+DONE - Touch Collider is colliding with more than 1 Object Collider and logic is getting confused on what was the OG object
 being touched
 
 - Maybe try to check if the INITIAL TOUCH is touching an object. If it is not, IGNORE this touch

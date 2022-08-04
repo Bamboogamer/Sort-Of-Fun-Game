@@ -14,30 +14,32 @@ public class MultiTouch : MonoBehaviour
     {
         for (var i = 0; i < Input.touchCount; ++i)
         {
-            Touch t = Input.GetTouch(i);
-            Vector2 touchPosition = cam.ScreenToWorldPoint(t.position);
-            RaycastHit2D hitInfo = Physics2D.Raycast(cam.ScreenToWorldPoint(t.position), Vector2.zero);
-            GameObject obj = hitInfo.transform.gameObject;
-
-            if (!obj.CompareTag("MovableObject"))
-            {
-                Debug.Log("NOT TOUCHING MovableObject");
-                Destroy(obj);
+            Touch t;
+            Vector2 touchPosition;
+            RaycastHit2D hitInfo;
+            GameObject obj;
+            BoxCollider2D objTouchCol;
+            
+            try
+            {            
+                t = Input.GetTouch(i);
+                touchPosition = cam.ScreenToWorldPoint(t.position);
+                hitInfo = Physics2D.Raycast(cam.ScreenToWorldPoint(t.position), Vector2.zero);
+                obj = hitInfo.transform.gameObject;
+                objTouchCol = obj.GetComponent<MovableObject>().touchCol;
             }
+            catch (Exception e){ return; }
             
             // If the raycast is touching something and that something is a "MovableObject"
-            if (hitInfo && obj.CompareTag("MovableObject"))
+            if (hitInfo)
             {
-                BoxCollider2D objTouchCol= obj.GetComponent<MovableObject>().touchCol;
-                
-                // Debug.Log(obj.name);
-                
+                // TODO: Maybe check the RayCast and ONLY select the FIRST Collider and ignore any others that enter the initial collider's area.
+                // TODO: In other words, FORCE a 1-to-1 relationship with touch raycast and object touch collider
                 switch (t.phase)
                 {
                     case TouchPhase.Began:
                         // Debug.Log("TOUCH HAS BEGAN - " + obj.name);
                         obj.GetComponent<MovableObject>().touchOn();
-                        objTouchCol.edgeRadius = 2.5f;
                         break;
     
                     case TouchPhase.Ended:
@@ -48,7 +50,11 @@ public class MultiTouch : MonoBehaviour
     
                     case TouchPhase.Moved:
                         // Debug.Log("TOUCH HAS MOVED! " + obj.name);
-                        obj.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
+                        if (obj.GetComponent<MovableObject>().getTouchStatus())
+                        {
+                            objTouchCol.edgeRadius = 2.5f;
+                            obj.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
+                        }
                         break;
     
                     case TouchPhase.Canceled:

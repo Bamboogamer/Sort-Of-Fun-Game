@@ -8,7 +8,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MultiTouch.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -73,6 +72,7 @@
       <workItem from="1659589128561" duration="339000" />
       <workItem from="1659589527525" duration="2143000" />
       <workItem from="1659591791413" duration="3048000" />
+      <workItem from="1659595759294" duration="1758000" />
     </task>
     <servers />
   </component>
