@@ -29,7 +29,7 @@ public class Conveyor : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag + " has ENTERED the " + name);
+        // Debug.Log(other.tag + " has ENTERED the " + name);
         objectsInBucket.Add(other);
     }
  

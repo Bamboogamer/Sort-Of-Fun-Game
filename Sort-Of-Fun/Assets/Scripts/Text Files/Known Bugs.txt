@@ -62,3 +62,6 @@ thus, making the logic confused.
     - Use a HashMap/Dictionary?
 - Touch Collider is colliding with more than 1 Object Collider and logic is getting confused on what was the OG object
 being touched
+
+- Maybe try to check if the INITIAL TOUCH is touching an object. If it is not, IGNORE this touch
+    - https://stackoverflow.com/questions/67028114/how-to-stop-raycast-when-hitting-an-object-in-unity

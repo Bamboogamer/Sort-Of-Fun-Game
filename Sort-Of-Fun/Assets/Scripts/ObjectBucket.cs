@@ -28,21 +28,16 @@ public class ObjectBucket : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
+        // If the collider is NOT the object collider, do not trigger
+        if (other != other.GetComponent<MovableObject>().objCol) return;
+        
         // Finds intersections between both lists, true if any element match
         bool intersectLists = categories.Intersect(other.GetComponent<MovableObject>().categories).Any();
-        // Debug.Log("TESTING: " + intersectLists);
-        // Debug.Log(string.Join(",", categories.ToArray()));
-        // Debug.Log(string.Join(",", string.Join(",", other.GetComponent<MovableObject>().categories.ToArray())));
-        
-        // Debug.Log(other.tag + " is IN the " + name);
         var fingerDown = other.gameObject.GetComponent<MovableObject>().getTouchStatus();
         
         // If finger is still down OR the tag does not match
         // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
         if (fingerDown || !intersectLists) return;
-        
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0;
         
         score++;
         TMPtext.SetText("SCORE: " + score);
@@ -52,18 +47,13 @@ public class ObjectBucket : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0;
-        Debug.Log(other.name + " has ENTERED the " + name);
+        // Debug.Log(other.name + " has ENTERED the " + name);
         objectsInBucket.Add(other);
-        
     }
  
     void OnTriggerExit2D(Collider2D other)
     {
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0.35f; // TODO: Could be changed to be based more on distance than instantly changing this
-        Debug.Log(other.name + " has EXITED the " + name);
+        // Debug.Log(other.name + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
 }

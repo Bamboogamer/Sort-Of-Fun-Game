@@ -6,6 +6,12 @@ using UnityEngine;
 public class MultiTouchDrag : MonoBehaviour
 {
     public List<Collider2D> objColliders;
+    private Camera cam;
+    
+    void Awake()
+    {
+        cam = Camera.main;
+    }
     
     void Start()
     {
@@ -13,13 +19,14 @@ public class MultiTouchDrag : MonoBehaviour
     }
     
     // TODO: Could possibly add a second Collider to the object to distinguish TOUCH vs Point Trigger
+    // TODO: Try to use Ray-casting instead of using a object list? --> https://forum.unity.com/threads/touching-a-2d-sprite.233483/
     void Update()
     {
         objColliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
         // TODO: Can be optimized using multi-threading??
         foreach (Touch t in Input.touches)
         {
-            Vector2 touchPosition = Camera.main.ScreenToWorldPoint(t.position);
+            Vector2 touchPosition = cam.ScreenToWorldPoint(t.position);
             Collider2D touchCollider = Physics2D.OverlapPoint(touchPosition);
 
             foreach (Collider2D objCollider in objColliders.Where(objCollider => objCollider == touchCollider))

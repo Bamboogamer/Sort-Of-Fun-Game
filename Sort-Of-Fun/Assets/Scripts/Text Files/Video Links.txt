@@ -1,0 +1,2 @@
+RayCast MultiTouch
+https://forum.unity.com/threads/touching-a-2d-sprite.233483/
