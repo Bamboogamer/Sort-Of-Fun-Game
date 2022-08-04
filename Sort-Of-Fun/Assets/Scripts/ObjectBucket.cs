@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class ObjectBucket : MonoBehaviour
 {
-    public TextMeshProUGUI TMPtext;
-    List<Collider2D> objectsInBucket;
-    
     [SerializeField] int score;
-    [SerializeField] public List<string> categories;
+    [SerializeField] List<string> categories;
+    
+    private List<Collider2D> objectsInBucket;
+    
+    public TextMeshProUGUI TMPtext;
     
     void Start()
     {
@@ -41,13 +42,15 @@ public class ObjectBucket : MonoBehaviour
         
         score++;
         TMPtext.SetText("SCORE: " + score);
-        objectsInBucket.Remove(other);
+        objectsInBucket.Remove(other.GetComponent<MovableObject>().objCol);
         Destroy(other.gameObject);
     }
     
     void OnTriggerEnter2D(Collider2D other)
     {
         // Debug.Log(other.name + " has ENTERED the " + name);
+        // If the collider is NOT the object collider, do not trigger
+        if (other != other.GetComponent<MovableObject>().objCol) return;
         objectsInBucket.Add(other);
     }
  

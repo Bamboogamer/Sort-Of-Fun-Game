@@ -33,24 +33,24 @@ public class MultiTouch : MonoBehaviour
             // If the raycast is touching something and that something is a "MovableObject"
             if (hitInfo)
             {
-                // TODO: Maybe check the RayCast and ONLY select the FIRST Collider and ignore any others that enter the initial collider's area.
-                // TODO: In other words, FORCE a 1-to-1 relationship with touch raycast and object touch collider
+                MovableObject movableObjectScript = obj.GetComponent<MovableObject>();
                 switch (t.phase)
                 {
                     case TouchPhase.Began:
                         // Debug.Log("TOUCH HAS BEGAN - " + obj.name);
-                        obj.GetComponent<MovableObject>().touchOn();
+                        movableObjectScript.touchOn();
+                        movableObjectScript.setFingerId(t.fingerId);
                         break;
     
                     case TouchPhase.Ended:
                         // Debug.Log("TOUCH HAS ENDED - " + obj.name);
-                        obj.GetComponent<MovableObject>().touchOff();
-                        objTouchCol.edgeRadius = 0f;
+                        movableObjectScript.touchOff();
                         break;
     
                     case TouchPhase.Moved:
                         // Debug.Log("TOUCH HAS MOVED! " + obj.name);
-                        if (obj.GetComponent<MovableObject>().getTouchStatus())
+                        if (movableObjectScript.getTouchStatus() &&
+                            movableObjectScript.getFingerId() == t.fingerId)
                         {
                             objTouchCol.edgeRadius = 2.5f;
                             obj.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
@@ -59,7 +59,7 @@ public class MultiTouch : MonoBehaviour
     
                     case TouchPhase.Canceled:
                         // Debug.Log("TOUCH HAS CANCELLED - " + obj.name);
-                        obj.GetComponent<MovableObject>().touchOff();
+                        movableObjectScript.touchOff();
                         break;
     
                     case TouchPhase.Stationary:

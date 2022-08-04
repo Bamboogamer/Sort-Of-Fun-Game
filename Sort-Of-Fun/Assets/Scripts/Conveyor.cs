@@ -4,7 +4,8 @@ using UnityEngine;
 public class Conveyor : MonoBehaviour
 {
     [SerializeField] public float speed = 0.25f; // Increase/Decrease based on Difficulty
-    List<Collider2D> objectsInBucket;
+    
+    private List<Collider2D> objectsInBucket;
     
     void Start()
     {
