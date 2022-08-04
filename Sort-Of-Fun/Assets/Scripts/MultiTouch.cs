@@ -18,7 +18,7 @@ public class MultiTouch : MonoBehaviour
             Vector2 touchPosition;
             RaycastHit2D hitInfo;
             GameObject obj;
-            BoxCollider2D objTouchCol;
+            CircleCollider2D objTouchCol;
             
             try
             {            
@@ -52,7 +52,7 @@ public class MultiTouch : MonoBehaviour
                         if (movableObjectScript.getTouchStatus() &&
                             movableObjectScript.getFingerId() == t.fingerId)
                         {
-                            objTouchCol.edgeRadius = 2.5f;
+                            objTouchCol.radius = 2.5f;
                             obj.transform.position = new Vector3(touchPosition.x, touchPosition.y, -5);
                         }
                         break;

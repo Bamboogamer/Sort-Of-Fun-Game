@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
         var randIdx = Random.Range(0, prefabs.Length);
         Vector3 randSpawnPosition = transform.position;
         randSpawnPosition.y += Random.Range(-0.75f, 0.75f);
+        randSpawnPosition.z = -5;
         
         spawnedObj = prefabs[randIdx];
         GameObject temp = Instantiate(spawnedObj, t.position, t.rotation);

@@ -10,14 +10,12 @@ public class MovableObject : MonoBehaviour
     // private bool safeStatus;
     private int fingerId;
     
-    public BoxCollider2D touchCol;
     public Collider2D objCol; 
-
+    public CircleCollider2D touchCol;
+    
     void Start()
     {
         fingerId = -1;
-        touchCol = GetComponents<BoxCollider2D>()[0];
-        objCol = GetComponents<Collider2D>()[1];
         touchStatus = false;
         // safeStatus = true;
     }
@@ -64,6 +62,6 @@ public class MovableObject : MonoBehaviour
         Debug.Log("Player has let go of: " + name);
         touchStatus = false;
         fingerId = -1;
-        touchCol.edgeRadius = 0f;
+        touchCol.radius = 0f;
     }
 }

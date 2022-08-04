@@ -30,7 +30,7 @@ public class ObjectBucket : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         // If the collider is NOT the object collider, do not trigger
-        if (other != other.GetComponent<MovableObject>().objCol) return;
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
         
         // Finds intersections between both lists, true if any element match
         bool intersectLists = categories.Intersect(other.GetComponent<MovableObject>().categories).Any();
@@ -50,7 +50,7 @@ public class ObjectBucket : MonoBehaviour
     {
         // Debug.Log(other.name + " has ENTERED the " + name);
         // If the collider is NOT the object collider, do not trigger
-        if (other != other.GetComponent<MovableObject>().objCol) return;
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
         objectsInBucket.Add(other);
     }
  

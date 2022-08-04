@@ -22,7 +22,10 @@ public class Conveyor : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.gameObject.GetComponent<MovableObject>().getTouchStatus())
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
+        
+        // If the object is not being touched, move it
+        if (!other.GetComponent<MovableObject>().getTouchStatus())
         {
             other.gameObject.transform.Translate(Vector3.right *(Time.deltaTime * speed));
         }
