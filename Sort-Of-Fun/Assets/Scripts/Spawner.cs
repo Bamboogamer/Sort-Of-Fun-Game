@@ -1,6 +1,7 @@
 using UnityEngine;
 
 // REFERENCE: https://www.youtube.com/watch?v=1h2yStilBWU&ab_channel=RenaissanceCoders
+
 public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject[] prefabs;
@@ -12,7 +13,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
+        InvokeRepeating(nameof(SpawnObject), spawnTime, spawnDelay);
     }
 
     public void SpawnObject()
@@ -30,7 +31,7 @@ public class Spawner : MonoBehaviour
         
         if (stopSpawning)
         {
-            CancelInvoke("SpawnObject");
+            CancelInvoke(nameof(SpawnObject));
         }
     }
 }
