@@ -2,9 +2,9 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/contentModel.xml
-/.idea.Sort-Of-Fun-Game.iml
+/.idea.Sort-Of-Fun.iml
 /projectSettingsUpdater.xml
+/contentModel.xml
 /modules.xml
 # Editor-based HTTP Client requests
 /httpRequests/

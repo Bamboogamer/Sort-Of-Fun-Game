@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorScript : MonoBehaviour
+public class Conveyor : MonoBehaviour
 {
     [SerializeField] public float speed = 0.25f; // Increase/Decrease based on Difficulty
-    List<Collider2D> objectsInBucket;
+    
+    private List<Collider2D> objectsInBucket;
     
     void Start()
     {
@@ -21,7 +22,10 @@ public class ConveyorScript : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.gameObject.GetComponent<MovableObject>().getTouchStatus())
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
+        
+        // If the object is not being touched, move it
+        if (!other.GetComponent<MovableObject>().getTouchStatus())
         {
             other.gameObject.transform.Translate(Vector3.right *(Time.deltaTime * speed));
         }
@@ -29,9 +33,8 @@ public class ConveyorScript : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag + " has ENTERED the " + name);
+        // Debug.Log(other.tag + " has ENTERED the " + name);
         objectsInBucket.Add(other);
-        
     }
  
     void OnTriggerExit2D(Collider2D other)

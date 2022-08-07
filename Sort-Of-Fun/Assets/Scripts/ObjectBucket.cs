@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class ObjectBucket : MonoBehaviour
 {
-    public TextMeshProUGUI TMPtext;
-    List<Collider2D> objectsInBucket;
-    
     [SerializeField] int score;
-    [SerializeField] public List<string> categories;
+    [SerializeField] List<string> categories;
+    
+    private List<Collider2D> objectsInBucket;
+    
+    public TextMeshProUGUI TMPtext;
     
     void Start()
     {
@@ -28,42 +29,34 @@ public class ObjectBucket : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
+        // If the collider is NOT the object collider, do not trigger
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
+        
         // Finds intersections between both lists, true if any element match
         bool intersectLists = categories.Intersect(other.GetComponent<MovableObject>().categories).Any();
-        // Debug.Log("TESTING: " + intersectLists);
-        // Debug.Log(string.Join(",", categories.ToArray()));
-        // Debug.Log(string.Join(",", string.Join(",", other.GetComponent<MovableObject>().categories.ToArray())));
-        
-        // Debug.Log(other.tag + " is IN the " + name);
         var fingerDown = other.gameObject.GetComponent<MovableObject>().getTouchStatus();
         
         // If finger is still down OR the tag does not match
         // TODO: Possibly add a "punishment" if you put the wrong object in the bucket
         if (fingerDown || !intersectLists) return;
         
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0;
-        
         score++;
         TMPtext.SetText("SCORE: " + score);
-        objectsInBucket.Remove(other);
+        objectsInBucket.Remove(other.GetComponent<MovableObject>().objCol);
         Destroy(other.gameObject);
     }
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0;
-        Debug.Log(other.name + " has ENTERED the " + name);
+        // Debug.Log(other.name + " has ENTERED the " + name);
+        // If the collider is NOT the object collider, do not trigger
+        if (other == other.GetComponent<MovableObject>().touchCol) return;
         objectsInBucket.Add(other);
-        
     }
  
     void OnTriggerExit2D(Collider2D other)
     {
-        BoxCollider2D boxCol = other as BoxCollider2D;
-        boxCol.edgeRadius = 0.35f; // TODO: Could be changed to be based more on distance than instantly changing this
-        Debug.Log(other.name + " has EXITED the " + name);
+        // Debug.Log(other.name + " has EXITED the " + name);
         objectsInBucket.Remove(other);
     }
 }
